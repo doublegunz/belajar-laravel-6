@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card header">
+                        <div class="card-header">
                             <h4 class="card-title">Tambah Produk</h4>
                         </div>
                         <div class="card-body">
@@ -30,7 +30,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="description">Deskripsi</label>
-                                <textarea name="description" id="description" cols="30" rows="10" class="form-control"></textarea>
+                                <textarea name="description" id="description" cols="30" rows="10" class="form-control">{{ old('description') }}</textarea>
                                 <p class="text-danger">{{ $errors->first('description') }}</p>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                                 <label for="status">Status</label>
                                 <select name="status" class="form-control" required>
                                     <option value="1" {{ old('status') == '1' ? 'selected' : '' }}>Publish</option>
-                                    <option value="0" {{ old('status') == '0' ? 'selected':'' }}></option>
+                                    <option value="0" {{ old('status') == '0' ? 'selected':'' }}>Draft</option>
                                 </select>
                                 <p class="text-danger">{{ $errors->first('status') }}</p>
                             </div>

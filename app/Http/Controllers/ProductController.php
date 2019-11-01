@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Product;
 use App\Category;
+use File;
 
 class ProductController extends Controller
 {
@@ -61,5 +62,16 @@ class ProductController extends Controller
             return redirect(route('product.index'))->with(['success' => 'Produk baru ditambahkan']);
             # code...
         }
+    }
+
+    public function destroy($id)
+    {
+        $product = Product::find($id);
+
+        File::delete(storage_path('app/public/products/'. $product->image));
+
+        $product->delete();
+
+        return redirect(route('product.index'))->with(['success' => 'Produk sudah dihapus']);
     }
 }
