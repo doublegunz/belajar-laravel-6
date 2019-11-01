@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::group(['prefix' => 'administrator', 'middleware' => 'auth'], function() {
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::resource('category', 'CategoryController')->except(['create', 'show']);
+    Route::resource('product', 'ProductController');
+});
