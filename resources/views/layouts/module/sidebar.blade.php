@@ -12,6 +12,11 @@
                 <i class="nav-icon icon-drop"></i> Kategori
             </a>
         </li>
+        <div class="nav-item">
+            <a href="{{ route('product.index') }}" class="nav-link">
+                <i class="nav-icon icon-drop"></i> Produk
+            </a>
+        </div>
         <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#">
                 <i class="nav-icon icon-settings"></i> Pengaturan
