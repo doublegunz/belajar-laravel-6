@@ -62,6 +62,11 @@
                         </div>
 
                         @empty
+                        <div class="col-md-12">
+                            <h3 class="text-center">
+                                Tidak ada produk
+                            </h3>
+                        </div>
 
                         @endforelse
                     </div>
@@ -76,11 +81,13 @@
                                 <ul class="list">
                                     @foreach ($categories as $category)
                                     <li>
-                                        <a href="">{{ $category->name }}</a>
+                                        <strong>
+                                            <a href="{{ url('/category/' . $category->slug) }}">{{ $category->name }}</a>
+                                        </strong>
                                         @foreach ($category->child as $child)
                                         <ul class="list">
                                             <li>
-                                                <a href="">{{ $child->name }}</a>
+                                                <a href="{{ url('/category/' . $child->slug) }}">{{ $child->name }}</a>
                                             </li>
                                         </ul>
 
